@@ -1,159 +1,70 @@
-# Frontend - MERN Stack Template
+# Getting Started with Create React App
 
-Frontend application built with React, Vite, React Router, React Hook Form, and Tailwind CSS.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Features
+## Available Scripts
 
-- React 18 with Vite for fast development
-- React Router DOM for navigation
-- React Hook Form for form handling and validation
-- Tailwind CSS for styling
-- JWT authentication with token storage
-- Protected routes
-- API service with Axios
-- Auth context for state management
-- Responsive design
-- Login/Signup pages
-- Dashboard with CRUD operations
+In the project directory, you can run:
 
-## Prerequisites
+### `npm start`
 
-- Node.js (v14 or higher)
-- Running backend server
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Installation
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
+### `npm test`
 
-2. Install dependencies:
-```bash
-npm install
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-3. Create a `.env` file in the frontend directory:
-```bash
-cp .env.example .env
-```
+### `npm run build`
 
-4. Update the `.env` file with your backend API URL:
-```
-VITE_API_URL=http://localhost:5000/api
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Running the Application
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Development mode:
-```bash
-npm run dev
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-The application will start on `http://localhost:5173`
+### `npm run eject`
 
-### Build for production:
-```bash
-npm run build
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### Preview production build:
-```bash
-npm run preview
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Project Structure
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-```
-frontend/
-├── public/                 # Static files
-├── src/
-│   ├── components/         # Reusable components
-│   │   ├── Navbar.jsx     # Navigation bar
-│   │   └── PrivateRoute.jsx # Protected route component
-│   ├── context/           # React context
-│   │   └── AuthContext.jsx # Authentication context
-│   ├── pages/             # Page components
-│   │   ├── Home.jsx       # Landing page
-│   │   ├── Login.jsx      # Login page
-│   │   ├── Signup.jsx     # Signup page
-│   │   └── Dashboard.jsx  # Protected dashboard with CRUD
-│   ├── services/          # API services
-│   │   ├── api.js         # Axios instance with interceptors
-│   │   └── authService.js # Auth and item API calls
-│   ├── utils/             # Utility functions
-│   ├── App.jsx            # Main app component
-│   ├── main.jsx           # Entry point
-│   └── index.css          # Global styles with Tailwind
-├── .env.example           # Environment variables example
-├── .gitignore             # Git ignore file
-├── index.html             # HTML template
-├── package.json           # Dependencies and scripts
-├── postcss.config.js      # PostCSS configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-└── vite.config.js         # Vite configuration
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Available Pages
+## Learn More
 
-### Home (`/`)
-- Landing page with feature list
-- Call-to-action buttons for signup/login
-- Public route
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Login (`/login`)
-- User login form
-- Form validation with React Hook Form
-- Public route
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Signup (`/signup`)
-- User registration form
-- Password confirmation
-- Form validation
-- Public route
+### Code Splitting
 
-### Dashboard (`/dashboard`)
-- Protected route (requires authentication)
-- Display user items
-- Create new items
-- Edit existing items
-- Delete items
-- Full CRUD functionality
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## Authentication
+### Analyzing the Bundle Size
 
-The application uses JWT tokens for authentication:
-- Tokens are stored in localStorage
-- Tokens are automatically included in API requests
-- Expired/invalid tokens redirect to login
-- Auth context provides user state throughout the app
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## API Integration
+### Making a Progressive Web App
 
-The frontend communicates with the backend through:
-- Axios instance with base URL from environment variables
-- Request interceptors to add JWT tokens
-- Response interceptors to handle authentication errors
-- Service functions for all API operations
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Styling
+### Advanced Configuration
 
-- Tailwind CSS for utility-first styling
-- Responsive design for mobile, tablet, and desktop
-- Custom color scheme with blue primary color
-- Consistent spacing and typography
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Environment Variables
+### Deployment
 
-- `VITE_API_URL` - Backend API URL (default: http://localhost:5000/api)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-## Development Tips
+### `npm run build` fails to minify
 
-- Vite provides Hot Module Replacement (HMR) for instant updates
-- Use React DevTools for debugging
-- Check browser console for errors
-- Ensure backend server is running before starting frontend
-
-## License
-
-MIT
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
