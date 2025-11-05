@@ -7,7 +7,7 @@ const useroute = express.Router();
 useroute.route("/register").post(registeruser);
 useroute.route("/login").post(loginuser);
 useroute.route("/refresh-token").get(refreshaccesstoken);
-useroute.route("/logout").post(verifyJWT,logoutuser);
+useroute.route("/logout").get(verifyJWT,logoutuser);
 useroute.route("/current-user").get(verifyJWT,getcurrentuser);
 
 export default useroute;

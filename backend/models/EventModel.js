@@ -8,7 +8,6 @@ const eventSchema = new mongoose.Schema(
       unique: true,
       trim: true
     },
-
     venue: {
       type: String,
       required: [true, "Venue is required"],

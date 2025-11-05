@@ -29,8 +29,12 @@ const registeruser = asynchandler(async (req, res, next) => {
     ism_member
   } = req.body;
 
-  if ([fullname, email, password, mobilenumber, ism_member].some(field => !field?.trim())) {
+  if ([fullname, email, password, mobilenumber].some(field => !field?.trim())) {
     throw new ApiError(400, "All fields are required");
+  }
+
+  if(!ism_member){
+    throw new ApiError(400, "ISM Member or not is required field");
   }
 
   if (password.length < 8) {

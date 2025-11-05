@@ -34,6 +34,9 @@ const userschema=new mongoose.Schema({
     ism_member:{
         type:Boolean,
         required:[true,"Is Member is required"],
+    },is_admin:{
+        type:Boolean,
+        default:false
     },
     refreshtoken:{
         type:String
