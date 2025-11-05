@@ -38,13 +38,13 @@ eventrouter.route("/:id/register").post(verifyJWT, registerForEvent);
 // =================================
 // (Assuming only authenticated users can manage events for now)
 // Create a new event
-eventrouter.route("/create").post(verifyJWT,isAdmin, createEvent);
+eventrouter.route("/create").post(isAdmin, createEvent);
 
 // Update an event
-eventrouter.route("/:id").put(verifyJWT,isAdmin, updateEvent);
+eventrouter.route("/:id").put(isAdmin, updateEvent);
 
 // Delete an event
-eventrouter.route("/:id").delete(verifyJWT,isAdmin, deleteEvent);
+eventrouter.route("/:id").delete(isAdmin, deleteEvent);
 
 
 export default eventrouter;
