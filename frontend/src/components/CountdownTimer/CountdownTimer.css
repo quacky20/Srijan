@@ -3,12 +3,14 @@
   display: flex;
   justify-content: center;
   gap: 20px; 
-  margin-top: 20px;
+  margin-top: 30px;
+  position:relative;
+  z-index:2;
 }
 
 .time-box {
   width: 90px;
-  height: 85px;
+  height: 90px;
   
   background: linear-gradient(to bottom, #A83A00, #421700);
 
