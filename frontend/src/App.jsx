@@ -11,8 +11,9 @@ import Navbar from "./components/Navbar.jsx";
 export default function App() {
   return (
     <>
-  {/* visible everywhere */}
+
       <Routes>
+        
         <Route path="/" element={<Events />} />
       {/**    <Route path="/gallery" element={<Gallery />} />
        *     <Route path="/sponsors" element={<Sponsors />} />
