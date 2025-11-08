@@ -3,7 +3,7 @@ import { asynchandler } from "../utils/asynchandler.js";
 import jwt from "jsonwebtoken";
 import { User } from "../models/UserModel.js";
 
-export const verifyJWT = asynchandler(async(req, res, next) => {
+export const isAdmin = asynchandler(async(req, res, next) => {
     try {
        
         
@@ -17,13 +17,12 @@ export const verifyJWT = asynchandler(async(req, res, next) => {
     
         const user = await User.findById(decodedToken?._id).select("-password -refreshToken");
     
-        if (!user) {
+        if (!user || !user.is_admin) {
             
-            throw new ApiError(401, "Invalid Access Token");
+            throw new ApiError(401, "Invalid Access Token or not a admin");
         }
     
         req.user = user;
-        
         
         
         next();
