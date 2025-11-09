@@ -25,16 +25,21 @@ export default function Display({ category }) {
 
   async function getEvents(selectedCategory) {
     if (selectedCategory === "ALL") {
+// apicall to getevnts api
+
       setEvents(demoEvents);
       return;
     }
+    // apicall to getevntsby categories
     const filtered = demoEvents.filter((ev) => ev.category === selectedCategory);
+
     setEvents(filtered);
   }
 
   useEffect(() => {
     getEvents(category);
   }, [category]);
+
 
   return (
     <>

@@ -3,6 +3,7 @@ import Home from "./pages/HomePage.jsx";
 //import Gallery from "./pages/Gallery.jsx";
 import Events from "./pages/EventPage/EventPage";
 import Navbar from "./components/Navbar.jsx";
+import AdminEvents from "./pages/AdminPage.jsx";
 //import Sponsors from "./pages/Sponsors.jsx";
 //import Merchandise from "./pages/Merchandise.jsx";
 //import Team from "./pages/Team/Team";
@@ -11,9 +12,10 @@ import Navbar from "./components/Navbar.jsx";
 export default function App() {
   return (
     <>
-  {/* visible everywhere */}
+
       <Routes>
-        <Route path="/" element={<Events />} />
+        
+        <Route path="/" element={<AdminEvents />} />
       {/**    <Route path="/gallery" element={<Gallery />} />
        *     <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/merchandise" element={<Merchandise />} />
