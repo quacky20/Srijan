@@ -26,6 +26,9 @@ const createEvent = asynchandler(async (req, res) => {
         coordinator_phone,
         registration_link
     } = req.body;
+    if(coordinator_names.length !== coordinator_phone.length){
+        throw new ApiError(400, "Coordinator names and phone numbers count mismatch");
+    }
 
     // Basic validation
     if (
@@ -59,8 +62,10 @@ const createEvent = asynchandler(async (req, res) => {
         bg_image_url: bg_image_url || "",
         rulebook: rulebook || "",
         rules: rules || [],
-        coordinator_names: coordinator_names || [],
-        coordinator_phone: coordinator_phone || []
+        coordinator: coordinator_names && coordinator_phone ? coordinator_names.map((name, index) => ({
+            name: name.trim(),
+            phone: coordinator_phone[index].trim()
+        })) : []
     });
 
     if (!event) {
@@ -100,6 +105,14 @@ const updateEvent = asynchandler(async (req, res) => {
     if (updateData.event_category && !EVENT_CATEGORIES.includes(updateData.event_category)) {
         throw new ApiError(400, "Invalid event category");
     }
+    if (updateData.coordinator_names && updateData.coordinator_phone) {
+        if (updateData.coordinator_names.length !== updateData.coordinator_phone.length) {
+            throw new ApiError(400, "Coordinator names and phone numbers count mismatch");
+        }
+        updateData.coordinator = updateData.coordinator_names.map((name, index) => ({
+            name: name.trim(),
+            phone: updateData.coordinator_phone[index].trim()
+        }));
 
     const updatedEvent = await Event.findByIdAndUpdate(
         id,
@@ -114,6 +127,7 @@ const updateEvent = asynchandler(async (req, res) => {
     return res.status(200).json(
         new ApiResponse(200, updatedEvent, "Event updated successfully")
     );
+}
 });
 
 /**

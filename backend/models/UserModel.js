@@ -8,6 +8,10 @@ const userschema=new mongoose.Schema({
         required:[true,"Full Name is required"],
         trim:true
     },
+    entered:{
+        type:Boolean,
+        default:false
+    },
     hospitality_package:{
         type:String,
         trim:true
@@ -15,6 +19,10 @@ const userschema=new mongoose.Schema({
     star_night:{
         type:Boolean,
         default:false
+    },
+    razorpay_order_id:{
+        type:String,
+        trim:true
     },
     email:{
         type:String,

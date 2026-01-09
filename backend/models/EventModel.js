@@ -43,25 +43,33 @@ const eventSchema = new mongoose.Schema(
       type: [String],
       default: []
     },
-
-    coordinator_names: {
-      type: [String],
+    coordinator:{
+      type:[{name:{type:String},phone:{type:String}}],
       default: [],
       validate: {
-        validator: (arr) => arr.every((n) => n.trim().length > 0),
-        message: "Coordinator names must be non-empty strings",
+        validator: (arr) => arr.every(
+          (c) => c.name.trim().length > 0 && /^[0-9]{10}$/.test(c.phone)
+        ),
       },
     },
+    // coordinator_names: {
+    //   type: [String],
+    //   default: [],
+    //   validate: {
+    //     validator: (arr) => arr.every((n) => n.trim().length > 0),
+    //     message: "Coordinator names must be non-empty strings",
+    //   },
+    // },
 
-    coordinator_phone: {
-      type: [String],
-      default: [],
-      validate: {
-        validator: (arr) =>
-          arr.every((p) => /^[0-9]{10}$/.test(p)),
-        message: "Each phone number must be a valid 10-digit number",
-      },
-    },
+    // coordinator_phone: {
+    //   type: [String],
+    //   default: [],
+    //   validate: {
+    //     validator: (arr) =>
+    //       arr.every((p) => /^[0-9]{10}$/.test(p)),
+    //     message: "Each phone number must be a valid 10-digit number",
+    //   },
+    // },
     // cooridnators:{
     //   type:[
     //     {
