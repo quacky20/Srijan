@@ -8,6 +8,9 @@ const eventSchema = new mongoose.Schema(
       unique: true,
       trim: true
     },
+    prize:{
+      type: String,
+    },
     event_category: {
       type: String,
       required: [true, "Event category is required"],
