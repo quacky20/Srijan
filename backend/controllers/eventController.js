@@ -24,7 +24,8 @@ const createEvent = asynchandler(async (req, res) => {
         rules,
         coordinator_names,
         coordinator_phone,
-        registration_link
+        registration_link,
+        prize,date
     } = req.body;
     if(coordinator_names.length !== coordinator_phone.length){
         throw new ApiError(400, "Coordinator names and phone numbers count mismatch");
@@ -32,9 +33,9 @@ const createEvent = asynchandler(async (req, res) => {
 
     // Basic validation
     if (
-        [event_name, event_category, venue, description,registration_link].some(field => !field?.trim())
+        [event_name, event_category, venue, description,registration_link,prize,date].some(field => !field?.trim())
     ) {
-        throw new ApiError(400, "Event name, category, venue, description, and registration link are required");
+        throw new ApiError(400, "Event name, category, venue, description,prize date and registration link are required");
     }
 
     // Validate category against constants
@@ -65,7 +66,9 @@ const createEvent = asynchandler(async (req, res) => {
         coordinator: coordinator_names && coordinator_phone ? coordinator_names.map((name, index) => ({
             name: name.trim(),
             phone: coordinator_phone[index].trim()
-        })) : []
+        })) : [],
+        prize:prize,
+        date:date
     });
 
     if (!event) {

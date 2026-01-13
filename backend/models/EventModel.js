@@ -46,6 +46,15 @@ const eventSchema = new mongoose.Schema(
       type: [String],
       default: []
     },
+    date:{
+      type:String,
+      required:true
+    },
+    prize:{
+      type:Number,
+      required:true
+    },
+
     coordinator:{
       type:[{name:{type:String},phone:{type:String}}],
       default: [],
